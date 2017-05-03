@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.StackPane?>
+<VBox prefHeight="600.0" prefWidth="1600" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="de.robinschuerer.buchung.ui.UiController">
+    <children>
+        <MenuBar fx:id="mainMenu" VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openFileDialog"
+                                  text="Open File"/>
+                        <MenuItem mnemonicParsing="false" text="Quit"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <BorderPane focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <top>
+                <GridPane styleClass="root">
+                    <stylesheets>
+                        <URL value="@Login.css"/>
+                    </stylesheets>
+                    <padding>
+                        <Insets bottom="25" left="25" right="25" top="25"/>
+                    </padding>
+                    <Label text="Email" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <font>
+                            <Font size="12.0" fx:id="x1"/>
+                        </font>
+                    </Label>
+                    <TextField fx:id="textField" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+                    <Label text="Password" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <font>
+                            <Font size="12.0"/>
+                        </font>
+                    </Label>
+                    <PasswordField fx:id="passwordField" GridPane.columnIndex="2"
+                                   GridPane.rowIndex="2"/>
+
+                    <HBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1"
+                          GridPane.rowSpan="2">
+                        <Label styleClass="loginStatus" text="Not Connected"/>
+                    </HBox>
+
+                    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2"
+                          GridPane.rowIndex="4">
+                        <Button onAction="#connect" text="Connect"/>
+                    </HBox>
+
+                    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3"
+                          GridPane.rowIndex="4">
+                        <Button onAction="#upload" text="Upload"/>
+                    </HBox>
+                </GridPane>
+            </top>
+            <center>
+                <GridPane>
+
+                    <HBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25"/>
+                        </padding>
+                        <ComboBox fx:id="importTypeField" layoutX="15.0" layoutY="33.0"
+                                  prefWidth="200"
+                                  promptText="choose">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="DiBa Konto"/>
+                                    <String fx:value="DKB Konto"/>
+                                    <String fx:value="DKB Kreditkarte"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </HBox>
+                    <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                        <TableView fx:id="tableView" editable="true" prefWidth="1600">
+                            <columns>
+                                <TableColumn text="Disable" fx:id="disableColumn">
+
+                                </TableColumn>
+                                <TableColumn text="Buchung">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="movementDate"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="450" text="Beschreibung">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory
+                                                property="description"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Betrag">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="value"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="100" text="Tag Vorschlag">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="tagProposal"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="100" text="Tag" fx:id="tagColumn">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="tag"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </HBox>
+                </GridPane>
+            </center>
+            <bottom>
+                <TextArea fx:id="logOutput" disable="true" font="$x1" prefHeight="100"
+                          prefWidth="900" style="&#10;" styleClass="root" wrapText="false">
+                    <stylesheets>
+                        <URL value="@LogOutput.css"/>
+                    </stylesheets>
+                    <padding>
+                        <Insets bottom="3" left="3" right="3" top="3"/>
+                    </padding>
+                </TextArea>
+
+            </bottom>
+        </BorderPane>
+    </children>
+</VBox>

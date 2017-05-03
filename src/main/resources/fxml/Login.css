@@ -1,0 +1,23 @@
+.root {
+    display: block;
+    -fx-vgap: 4;
+    -fx-hgap: 10;
+}
+.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.text-field {
+    -fx-min-width: 240;
+}
+
+.loginStatus {
+    -fx-text-fill: crimson;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+

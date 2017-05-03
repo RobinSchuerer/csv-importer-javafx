@@ -1,0 +1,20 @@
+# Gradle
+build
+.gradle
+
+# IntelliJ IDEA
+.idea/
+classes/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+/bin/
+.checkstyle
+
+# Mac
+.DS_Store

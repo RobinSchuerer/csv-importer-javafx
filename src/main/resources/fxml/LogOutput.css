@@ -1,0 +1,4 @@
+.root:disabled {
+    -fx-text-fill: black;
+    -fx-opacity: 1.0;
+}

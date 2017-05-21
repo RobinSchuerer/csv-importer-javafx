@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung;
+package de.robinschuerer.bank;
 
 import java.io.File;
 import java.io.FileInputStream;

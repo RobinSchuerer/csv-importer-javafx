@@ -24,7 +24,7 @@
 <?import javafx.scene.layout.StackPane?>
 <VBox prefHeight="600.0" prefWidth="1600" xmlns="http://javafx.com/javafx/8.0.112"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="de.robinschuerer.buchung.ui.UiController">
+      fx:controller="de.robinschuerer.bank.dto.UiController">
     <children>
         <MenuBar fx:id="mainMenu" VBox.vgrow="NEVER">
             <menus>

@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung.domain;
+package de.robinschuerer.bank.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

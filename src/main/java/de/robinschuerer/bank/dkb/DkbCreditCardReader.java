@@ -29,12 +29,8 @@ public class DkbCreditCardReader extends AbstractAccountExportReader
         return entries
             .stream()
             .map(dkbCreditCardExportEntry -> {
-                final long count = counter.incrementAndGet();
+                status.put(ticket, getProgress(counter, entries));
 
-                final int progress = Math.round((float) count / entries.size() * 100);
-
-                System.out.println(progress);
-                status.put(ticket, progress);
                 return AccountMovementDto
                     .newBuilder()
                     .withValue(ConverterUtil.currencyToBigDecimal(dkbCreditCardExportEntry.getBetrag()))
@@ -49,6 +45,12 @@ public class DkbCreditCardReader extends AbstractAccountExportReader
                 }
             })
             .collect(Collectors.toList());
+    }
+
+    private int getProgress(final AtomicLong counter, final List<DkbCreditCardExportEntry> entries) {
+        final long count = counter.incrementAndGet();
+
+        return Math.round((float) count / entries.size() * 100);
     }
 
     @Override

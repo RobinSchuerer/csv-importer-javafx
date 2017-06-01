@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung;
+package de.robinschuerer.bank;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -14,8 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.Lists;
 
-import de.robinschuerer.buchung.domain.AccountMovement;
-import de.robinschuerer.buchung.ui.AccountMovementDto;
+import de.robinschuerer.bank.domain.AccountMovement;
+import de.robinschuerer.bank.dto.AccountMovementDto;
 
 @Service
 public class UploadService {

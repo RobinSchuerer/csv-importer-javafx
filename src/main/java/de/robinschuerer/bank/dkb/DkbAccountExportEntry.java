@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung.dkb;
+package de.robinschuerer.bank.dkb;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

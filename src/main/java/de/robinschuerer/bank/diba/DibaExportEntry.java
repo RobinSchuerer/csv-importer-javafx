@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung.diba;
+package de.robinschuerer.bank.diba;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

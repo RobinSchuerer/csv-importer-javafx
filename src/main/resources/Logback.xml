@@ -6,19 +6,8 @@
         </encoder>
     </appender>
 
-    <appender name="MyCustomAppender"
-              class="de.robinschuerer.buchung.ui.MyStaticOutputStreamAppender">
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
-        <encoder>
-            <pattern>%d{HH:mm:ss} %msg%n</pattern>
-        </encoder>
-    </appender>
-
     <root level="info">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="MyCustomAppender" />
     </root>
 
 </configuration>

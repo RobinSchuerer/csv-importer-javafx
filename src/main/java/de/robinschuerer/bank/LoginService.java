@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung;
+package de.robinschuerer.bank;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import de.robinschuerer.buchung.domain.Login;
+import de.robinschuerer.bank.domain.Login;
 
 @Service
 public class LoginService {

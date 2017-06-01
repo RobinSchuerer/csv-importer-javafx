@@ -1,4 +1,4 @@
-package de.robinschuerer.buchung.util;
+package de.robinschuerer.bank.util;
 
 import static org.junit.Assert.assertEquals;
 

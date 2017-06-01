@@ -1,10 +1,10 @@
-package de.robinschuerer.buchung.ui;
+package de.robinschuerer.bank.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import de.robinschuerer.buchung.util.ConverterUtil;
+import de.robinschuerer.bank.util.ConverterUtil;
 
 public class AccountMovementDto {
 

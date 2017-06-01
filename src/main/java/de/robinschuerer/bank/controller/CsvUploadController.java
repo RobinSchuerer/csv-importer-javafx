@@ -2,7 +2,6 @@ package de.robinschuerer.bank.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -47,23 +46,19 @@ public class CsvUploadController {
         IllegalStateException, IOException {
 
         final UUID ticket = UUID.randomUUID();
+        final File tmpFile = multipartToFile(file, ticket);
         taskExecutor.execute(() -> {
             final List<AccountMovementDto> result;
             try {
-                final File tmpFile = multipartToFile(file, ticket);
-                try {
-                    result = importService.importData(
-                        ticket,
-                        status,
-                        tmpFile,
-                        "DKB Kreditkarte");
+                result = importService.importData(
+                    ticket,
+                    status,
+                    tmpFile,
+                    "DKB Kreditkarte");
 
-                    LOGGER.info("putting result {} for {}", result, ticket);
-                } finally {
-                    FileUtils.deleteQuietly(tmpFile);
-                }
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                LOGGER.info("putting result {} for {}", result, ticket);
+            } finally {
+                FileUtils.deleteQuietly(tmpFile);
             }
 
             status.put(ticket, -1);
@@ -77,6 +72,10 @@ public class CsvUploadController {
     public Integer status(@PathVariable("ticket") UUID ticket) {
 
         final Integer progress = status.get(ticket);
+        if (progress == null) {
+            return 0;
+        }
+
         if (progress == -1) {
             return 100;
         }
